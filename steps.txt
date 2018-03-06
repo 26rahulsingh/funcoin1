@@ -1,33 +1,61 @@
 Install Dependencies:
 
-1. sudo apt-get install git
+sudo apt-get install git
 
-2. sudo apt-get install build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils
+sudo apt-get install build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils
 
-3. sudo apt-get install libboost-system-dev libboost-filesystem-dev libboost-chrono-dev libboost-program-options-dev libboost-test-dev libboost-thread-dev
+sudo apt-get install libboost-system-dev libboost-filesystem-dev libboost-chrono-dev libboost-program-options-dev libboost-test-dev libboost-thread-dev
 
-4. sudo apt-get install libboost-all-dev
+sudo apt-get install libboost-all-dev
 
-5. sudo apt-get install software-properties-common
+sudo apt-get install software-properties-common
 
-6. sudo add-apt-repository ppa:bitcoin/bitcoin
+sudo add-apt-repository ppa:bitcoin/bitcoin
 
-7. sudo apt-get update
+sudo apt-get update
 
-8. sudo apt-get install libdb4.8-dev libdb4.8++-dev
+sudo apt-get install libdb4.8-dev libdb4.8++-dev
 
-9. sudo apt-get install libminiupnpc-dev
+sudo apt-get install libminiupnpc-dev
 
-10. sudo apt-get install libzmq3-dev
+sudo apt-get install libzmq3-dev
 
-11. sudo apt-get install libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler 
+sudo apt-get install libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler 
 
-12. sudo apt-get install libqt4-dev libprotobuf-dev protobuf-compiler
+sudo apt-get install libqt4-dev libprotobuf-dev protobuf-compiler
 
-git clone -b 0.8 https://github.com/funcoin-project/funcoin.git
+git clone -b 0.8 https://github.com/litecoin-project/litecoin.git
 
-find . -type f -print0 | xargs -0 sed -i 's/funcoin/funcoin/g'
-find . -type f -print0 | xargs -0 sed -i 's/Funcoin/Funcoin/g'
-find . -type f -print0 | xargs -0 sed -i 's/Funcoin/Funcoin/g'
-find . -type f -print0 | xargs -0 sed -i 's/FUNCOIN/FUNCOIN/g'
-find . -type f -print0 | xargs -0 sed -i 's/FUN/FUN/g'
+find . -type f -print0 | xargs -0 sed -i 's/litecoin/funcoin/g'
+find . -type f -print0 | xargs -0 sed -i 's/Litecoin/Funcoin/g'
+find . -type f -print0 | xargs -0 sed -i 's/LiteCoin/Funcoin/g'
+find . -type f -print0 | xargs -0 sed -i 's/LITECOIN/FUNCOIN/g'
+find . -type f -print0 | xargs -0 sed -i 's/LTC/FUN/g'
+
+cd src/
+make -f makefile.unix
+
+change port number.
+find . -type f -print0 | xargs -0 sed -i 's/9333/2333/g'
+find . -type f -print0 | xargs -0 sed -i 's/9332/2332/g'
+
+https://en.bitcoin.it/wiki/List_of_address_prefixes
+
+openssl ecparam -genkey -name secp256k1 -out alertkey.pem
+openssl ec -in alertkey.pem -text > alertkey.hex
+openssl ecparam -genkey -name secp256k1 -out testnetalert.pem
+openssl ec -in testnetalert.pem -text > testnetalert.hex
+openssl ecparam -genkey -name secp256k1 -out genesiscoinbase.pem
+openssl ec -in testnetalert.pem -text > genesiscoinbase.hex
+
+change mainnet and testnet key in alert.cpp using cat tetnetalert.hex pub key.
+change genesisblock key (line no. 2794(ParseHex) main.cpp) using cat genesiscoinbase.hex pub key.
+
+change pchMessagerStart for fTestNet in main.cpp line no. 2794 for testnet like - 0xf1, 0xc2, 0xb6, 0xd2.
+also change pchMessagerStart for mainnet in main.cpp line no. 3082 like - 0xfa, 0xc3, 0xba, 0xd3.
+
+goto net.cpp line no. 1178 and remove mainnet dns seed leave last { NULL, NULL } as it is.
+also remove testnet dns seed leve last { NULL, NULL } as it is.
+also remove pnSeed[] all address and put 0x0.
+
+
