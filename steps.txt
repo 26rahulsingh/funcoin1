@@ -1,0 +1,33 @@
+Install Dependencies:
+
+1. sudo apt-get install git
+
+2. sudo apt-get install build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils
+
+3. sudo apt-get install libboost-system-dev libboost-filesystem-dev libboost-chrono-dev libboost-program-options-dev libboost-test-dev libboost-thread-dev
+
+4. sudo apt-get install libboost-all-dev
+
+5. sudo apt-get install software-properties-common
+
+6. sudo add-apt-repository ppa:bitcoin/bitcoin
+
+7. sudo apt-get update
+
+8. sudo apt-get install libdb4.8-dev libdb4.8++-dev
+
+9. sudo apt-get install libminiupnpc-dev
+
+10. sudo apt-get install libzmq3-dev
+
+11. sudo apt-get install libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler 
+
+12. sudo apt-get install libqt4-dev libprotobuf-dev protobuf-compiler
+
+git clone -b 0.8 https://github.com/funcoin-project/funcoin.git
+
+find . -type f -print0 | xargs -0 sed -i 's/funcoin/funcoin/g'
+find . -type f -print0 | xargs -0 sed -i 's/Funcoin/Funcoin/g'
+find . -type f -print0 | xargs -0 sed -i 's/Funcoin/Funcoin/g'
+find . -type f -print0 | xargs -0 sed -i 's/FUNCOIN/FUNCOIN/g'
+find . -type f -print0 | xargs -0 sed -i 's/FUN/FUN/g'
