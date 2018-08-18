@@ -1,0 +1,53 @@
+wuazi coin guide
+----------------
+
+./autogen.sh
+./configure.sh
+make -s -j5
+
+find . -type f -print0 | xargs -0 sed -i 's/Gobytecoin/Wuazicoin/g'
+find . -type f -print0 | xargs -0 sed -i 's/GoByte/Wuazi/g'
+find . -type f -print0 | xargs -0 sed -i 's/gobyte/wuazi/g'
+find . -type f -print0 | xargs -0 sed -i 's/GOBYTE/WUAZI/g'
+find . -type f -print0 | xargs -0 sed -i 's/gobyte-cli/wuazi-cli/g'
+find . -type f -print0 | xargs -0 sed -i 's/gobyte-tx/wuazi-tx/g'
+find . -type f -print0 | xargs -0 sed -i 's/gobyte_cli_SOURCES/wuazid_cli_SOURCES/g'
+find . -type f -print0 | xargs -0 sed -i 's/gobyted/wuazid/g'
+find . -type f -print0 | xargs -0 sed -i 's/GOBYTED/WUAZID/g'
+find . -type f -print0 | xargs -0 sed -i 's/gobytecoin/wuazicoin/g'
+find . -type f -print0 | xargs -0 sed -i 's/gobytecore/wuazicore/g'
+find . -type f -print0 | xargs -0 sed -i 's/GoByteCore/WuaziCore/g'
+find . -type f -print0 | xargs -0 sed -i 's/GBX/WAZ/g'
+
+
+
+find . -type f -print0 | xargs -0 sed -i 's/DASH/WAZ/g'
+find . -type f -print0 | xargs -0 sed -i 's/dash_cli_SOURCES/wuazi_cli_SOURCES/g'
+find . -type f -print0 | xargs -0 sed -i 's/dash/wuazi/g'
+find . -type f -print0 | xargs -0 sed -i 's/dashcore/wuazicore/g'
+find . -type f -print0 | xargs -0 sed -i 's/dashd/wuazid/g'
+find . -type f -print0 | xargs -0 sed -i 's/DASHD/WUAZID/g'
+find . -type f -print0 | xargs -0 sed -i 's/DashCore/WuaziCore/g'
+find . -type f -print0 | xargs -0 sed -i 's/Dash/Wuazi/g'
+
+change port in chainparams.cpp
+------------------------------
+find . -type f -print0 | xargs -0 sed -i 's/12455/92455/g'
+find . -type f -print0 | xargs -0 sed -i 's/13455/93455/g'
+find . -type f -print0 | xargs -0 sed -i 's/13565/93565/g'
+
+change port in chainparambase.cpp
+---------------------------------
+find . -type f -print0 | xargs -0 sed -i 's/12454/92454/g'
+find . -type f -print0 | xargs -0 sed -i 's/13454/93454/g'
+find . -type f -print0 | xargs -0 sed -i 's/13564/93564/g'
+
+chnage address start with in chainparams.cpp
+--------------------------------------------
+https://en.bitcoin.it/wiki/List_of_address_prefixes
+
+
+back_up ether wallet address
+----------------------------
+0xFDaFf3eB67804E15ad722071d090433befCcb467
+
